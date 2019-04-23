@@ -67,9 +67,7 @@ pub fn write_version_file() -> Result<(), Error> {
 
     let path = path.join("version.rs");
 
-    let describe = git_describe();
-
-    let content = if let Some(describe) = describe {
+    let content = if let Some(describe) = git_describe() {
         format!("static GIT_BUILD_VERSION: Option<&'static str> = Some(\"{}\");\n", describe)
     } else {
         "static GIT_BUILD_VERSION: Option<&'static str> = None;\n".to_owned()
