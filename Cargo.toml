@@ -1,0 +1,11 @@
+[package]
+name = "build-version"
+description = "Git version info"
+license = "LGPL"
+repository = "https://github.com/daa84/build-version"
+version = "0.1.0"
+authors = ["daa84 <daa84@inbox.ru>"]
+edition = "2018"
+
+[dependencies]
+quick-error = "1.2.2"
