@@ -3,7 +3,7 @@ name = "build-version"
 description = "Git version info"
 license = "LGPL-3.0-or-later"
 repository = "https://github.com/daa84/build-version"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["daa84 <daa84@inbox.ru>"]
 edition = "2018"
 
