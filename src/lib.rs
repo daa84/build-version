@@ -70,7 +70,7 @@ pub fn write_version_file() -> Result<(), Error> {
     let describe = git_describe();
 
     let content = if let Some(describe) = describe {
-        format!("static GIT_BUILD_VERSION: Option<&'static str> = \"{}\";\n", describe)
+        format!("static GIT_BUILD_VERSION: Option<&'static str> = Some(\"{}\");\n", describe)
     } else {
         "static GIT_BUILD_VERSION: Option<&'static str> = None;\n".to_owned()
     };
