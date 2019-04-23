@@ -58,6 +58,7 @@ fn git_describe() -> Option<String> {
         })
 }
 
+/// Write version.rs file to OUT_DIR
 pub fn write_version_file() -> Result<(), Error> {
     let path = env::var_os("OUT_DIR").ok_or(Error::MissingEnvVar)?;
     let path: &Path = path.as_ref();
@@ -69,7 +70,7 @@ pub fn write_version_file() -> Result<(), Error> {
     let describe = git_describe();
 
     let content = if let Some(describe) = describe {
-        format!("static GIT_BUILD_VERSION: Option<&'static str> = {};\n", describe)
+        format!("static GIT_BUILD_VERSION: Option<&'static str> = \"{}\";\n", describe)
     } else {
         "static GIT_BUILD_VERSION: Option<&'static str> = None;\n".to_owned()
     };
